@@ -1,10 +1,13 @@
 package com.keyin.rest.Aircraft;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.keyin.rest.Passenger.Passenger;
 import com.keyin.rest.Airport.Airport;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 import java.util.Set;
 
 @Entity
@@ -15,8 +18,14 @@ public class Aircraft {
     private Long id;
 
     private String type;
+    @Column(name = "airlineName")
     private String airlineName;
-    private int numberOfPassengers;
+
+    @Column(name = "numberOfPassengers")
+    private Integer numberOfPassengers;
+
+
+    
 
     @ManyToMany
     @JsonIgnore
@@ -28,6 +37,7 @@ public class Aircraft {
     private Set<Passenger> passengers;
 
     @ManyToMany
+    
     @JoinTable(
             name = "aircraft_airport",
             joinColumns = @JoinColumn(name = "aircraft_id"),
@@ -59,11 +69,16 @@ public class Aircraft {
         this.airlineName = airlineName;
     }
 
-    public int getNumberOfPassengers() {
+    
+    @JsonProperty("numberOfPassengers")
+    public Integer getNumberOfPassengers() {
         return numberOfPassengers;
     }
 
-    public void setNumberOfPassengers(int numberOfPassengers) {
+
+
+
+    public void setNumberOfPassengers(Integer numberOfPassengers) {
         this.numberOfPassengers = numberOfPassengers;
     }
 

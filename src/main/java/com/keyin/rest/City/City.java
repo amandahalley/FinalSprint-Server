@@ -1,7 +1,7 @@
 package com.keyin.rest.City;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.keyin.rest.Airport.Airport;
 import com.keyin.rest.Passenger.Passenger;
 import jakarta.persistence.*;

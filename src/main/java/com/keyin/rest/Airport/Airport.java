@@ -1,7 +1,7 @@
 package com.keyin.rest.Airport;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.keyin.rest.City.City;
 import com.keyin.rest.Aircraft.Aircraft;
 import com.keyin.rest.Passenger.Passenger;
@@ -19,10 +19,12 @@ public class Airport {
     private String code;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "city_id")
     private City city;
 
     @ManyToMany(mappedBy = "airports")
+    @JsonIgnore
     private Set<Aircraft> aircrafts;
 
     @ManyToMany(mappedBy = "airportsUsed")

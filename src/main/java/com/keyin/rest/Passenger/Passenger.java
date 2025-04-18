@@ -1,7 +1,7 @@
 package com.keyin.rest.Passenger;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.keyin.rest.Aircraft.Aircraft;
 import com.keyin.rest.Airport.Airport;
 import com.keyin.rest.City.City;
@@ -20,6 +20,7 @@ public class Passenger {
     private String phoneNumber;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "city_id")
     private City city;
 
@@ -29,10 +30,11 @@ public class Passenger {
             joinColumns = @JoinColumn(name = "passenger_id"),
             inverseJoinColumns = @JoinColumn(name = "aircraft_id")
     )
-    @JsonIgnore
+    
     private Set<Aircraft> aircrafts;
 
     @ManyToMany
+    
     @JoinTable(
             name = "passenger_airport",
             joinColumns = @JoinColumn(name = "passenger_id"),

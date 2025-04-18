@@ -25,6 +25,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/aviation2025
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: keyin2025
+      SPRING_PROFILES_ACTIVE: docker
+
     networks:
       - app-network
 
